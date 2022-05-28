@@ -1,2 +1,2 @@
-export * from './AppShell';
-export * from './Button';
+export * from './atoms';
+export * from './app-shell';

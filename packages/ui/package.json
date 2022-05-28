@@ -1,24 +1,27 @@
 {
   "name": "ui",
   "version": "0.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "scripts": {
+    "build": "tsc --outDir dist",
+    "dev": "tsc --watch --outDir dist",
     "lint": "eslint *.ts*"
   },
   "devDependencies": {
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
-    "react": "^17.0.2",
+    "react": "^18.1.0",
     "tsconfig": "*",
     "typescript": "^4.5.2"
   },
   "dependencies": {
     "@mantine/core": "^4.2.6",
     "@mantine/dropzone": "^4.2.6",
-    "@mantine/hooks": "^4.2.6"
+    "@mantine/hooks": "^4.2.6",
+    "tabler-icons-react": "^1.48.0"
   }
 }
