@@ -1,0 +1,25 @@
+{
+    "name": "board",
+    "version": "0.0.0",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "license": "MIT",
+    "scripts": {
+      "build": "tsc --outDir dist",
+      "dev": "tsc --watch --outDir dist",
+      "lint": "eslint *.ts*"
+    },
+    "devDependencies": {
+      "@types/react": "^18.0.9",
+      "@types/react-dom": "^18.0.5",
+      "eslint": "^7.32.0",
+      "eslint-config-custom": "*",
+      "react": "^18.1.0",
+      "tsconfig": "*",
+      "typescript": "^4.5.2",
+      "ui": "*"
+    },
+    "dependencies": {
+    }
+  }
+  
