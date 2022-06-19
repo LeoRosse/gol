@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "board": "*",
+    "business-logic": "*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "store": "*",
     "ui": "*",
     "web-vitals": "^2.1.4"
   },

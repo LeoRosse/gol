@@ -5,7 +5,7 @@ import { Board } from 'board';
 const Game: React.FC = () => {
   return (
     <AppShell title="A Journey into the Game of Life">
-      <Board ButtonComponent={() => <Button variant="outline" color="dark" />} />
+      <Board ButtonComponent={({ cell }) => <Button variant={cell === 1 ? 'filled' : 'outline'} color="dark" />} />
     </AppShell>
   );
 };
