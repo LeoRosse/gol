@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { Button } from 'ui';
 
-const Board: React.FC = () => {
+interface BoardProps {
+  ButtonComponent: React.ComponentType;
+}
+
+const Board: React.FC<BoardProps> = ({ ButtonComponent }) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [elements, setElements] = React.useState<number>(0);
   // Constants
@@ -20,7 +23,7 @@ const Board: React.FC = () => {
       style={{ display: 'grid', gridTemplateColumns: `repeat(auto-fit, minmax(${widthElement}px, 1fr))` }}
     >
       {[...Array(elements).keys()].map((el) => (
-        <Button variant="outline" color="dark" key={el} />
+        <ButtonComponent key={el} />
       ))}
     </div>
   );

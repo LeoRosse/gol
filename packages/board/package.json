@@ -16,10 +16,8 @@
       "eslint-config-custom": "*",
       "react": "^18.1.0",
       "tsconfig": "*",
-      "typescript": "^4.5.2",
-      "ui": "*"
+      "typescript": "^4.5.2"
     },
-    "dependencies": {
-    }
+    "dependencies": {}
   }
   

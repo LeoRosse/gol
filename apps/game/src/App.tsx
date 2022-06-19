@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { AppShell } from 'ui';
+import { AppShell, Button } from 'ui';
 import { Board } from 'board';
 
 const Game: React.FC = () => {
   return (
     <AppShell title="A Journey into the Game of Life">
-      <Board />
+      <Board ButtonComponent={() => <Button variant="outline" color="dark" />} />
     </AppShell>
   );
 };
