@@ -8,13 +8,16 @@ const Board: React.FC<BoardProps> = ({ ButtonComponent }) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   const [elements, setElements] = React.useState<number>(0);
   // Constants
-  const widthElement = 40;
-  const buttonsArea = 1454.4; // width: 40.4px height: 36px
+  const widthElement = 40.4;
+  const heightElement = 36;
+  // const buttonsArea = 1454.4; // width: 40.4px height: 36px
 
   React.useEffect(() => {
     const width = divRef.current?.clientWidth || 0;
     const height = window.innerHeight - 136;
-    setElements(Math.round((width * height) / buttonsArea));
+    const boardWidth = Math.round(width / widthElement);
+    const boardHeight = Math.round(height / heightElement);
+    setElements(boardWidth * boardHeight);
   }, [divRef.current]);
 
   return (
