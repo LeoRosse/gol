@@ -26,6 +26,7 @@ module.exports = {
     'no-debugger': ['off'],
     'no-shadow': 'off',
     'no-undef': ['off'],
+    'no-param-reassign': ['off'],
     'no-use-before-define': 0,
     'dot-notation': 0,
     'prettier/prettier': 'error',
