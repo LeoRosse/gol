@@ -13,9 +13,9 @@ import { Aside, Footer, Header, Navbar, Text, Title } from './atoms';
 type ShellProps = Pick<
   AppShellPropsMantine,
   'aside' | 'children' | 'className' | 'fixed' | 'navbar' | 'navbarOffsetBreakpoint' | 'styles' | 'footer' | 'header'
-> & { title: string };
+> & { CommandsComponent: React.ComponentType; title: string };
 
-export const Shell: React.FC<ShellProps> = ({ children, title, ...rest }) => {
+export const Shell: React.FC<ShellProps> = ({ children, CommandsComponent, title, ...rest }) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   const { aside, footer, header, navbar } = rest;
@@ -26,7 +26,7 @@ export const Shell: React.FC<ShellProps> = ({ children, title, ...rest }) => {
       navbar={
         (
           <Navbar p="md" width={{ sm: 200, lg: 300 }}>
-            <Text>Qui i comandi</Text>
+            <CommandsComponent />
           </Navbar>
         ) || navbar
       }

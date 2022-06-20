@@ -2,9 +2,14 @@ import * as React from 'react';
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
 import { Shell } from './shell';
 
-type AppShellProps = { children: React.ReactNode; colorScheme?: ColorScheme; title: string };
+type AppShellProps = {
+  children: React.ReactNode;
+  colorScheme?: ColorScheme;
+  CommandsComponent: React.ComponentType;
+  title: string;
+};
 
-export const AppShell: React.FC<AppShellProps> = ({ children, colorScheme, title }) => {
+export const AppShell: React.FC<AppShellProps> = ({ children, colorScheme, CommandsComponent, title }) => {
   const [colorSchemeState, setColorSchemeState] = React.useState<ColorScheme>(colorScheme || 'light');
 
   const toggleColorScheme = (value?: ColorScheme) =>
@@ -19,7 +24,9 @@ export const AppShell: React.FC<AppShellProps> = ({ children, colorScheme, title
           colorScheme: colorSchemeState,
         }}
       >
-        <Shell title={title}>{children}</Shell>
+        <Shell CommandsComponent={CommandsComponent} title={title}>
+          {children}
+        </Shell>
       </MantineProvider>
     </ColorSchemeProvider>
   );

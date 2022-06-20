@@ -12,19 +12,13 @@ module.exports = () => ({
     plugins: {
       add: [
         new ModuleFederationPlugin({
-          name: 'game',
+          name: 'commands',
           filename: 'remoteEntry.js',
-          remotes: {
-            commands: 'commands@http://localhost:3001/remoteEntry.js',
+          exposes: {
+            './Commands': './src/App',
           },
           shared: {
             ...deps,
-            board: {
-              singleton: true,
-            },
-            'business-logic': {
-              singleton: true,
-            },
             store: {
               singleton: true,
             },

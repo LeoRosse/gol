@@ -19,6 +19,7 @@ module.exports = {
     'global-require': ['off'],
     'import/extensions': ['error', 'ignorePackages', { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' }],
     'import/no-dynamic-require': 'off',
+    'import/no-anonymous-default-export': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 0,
