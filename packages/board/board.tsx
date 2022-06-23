@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { v4 } from 'uuid';
 import { generateArray, nextGeneration } from 'business-logic';
-import { cellsStore, columnsStore, elementsStore } from 'store';
+import { cellsStore, columnsStore, elementsStore, gameActionsStore } from 'store';
 import { Loader } from 'ui';
-import { Cell } from 'models';
+import { Cell, GameActions } from 'models';
 
 interface BoardProps {
   ButtonComponent: React.ComponentType<{ cell: Cell; position: number }>;
@@ -11,9 +11,12 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ ButtonComponent }) => {
   const divRef = React.useRef<HTMLDivElement>(null);
+  const gameLoop = React.useRef<NodeJS.Timer | null>(null);
+
   const { cells, setCells } = cellsStore();
   const { elements, setElements } = elementsStore();
   const { columns, setColumns } = columnsStore();
+  const { status } = gameActionsStore();
 
   React.useEffect(() => {
     if (!elements) return;
@@ -21,16 +24,18 @@ const Board: React.FC<BoardProps> = ({ ButtonComponent }) => {
   }, [elements, setCells]);
 
   React.useEffect(() => {
-    const gameLoop = setInterval(() => {
-      const next = nextGeneration(cells, columns);
-      if (!next) return;
-      setCells(next);
-    }, 1000);
+    if (gameLoop.current) clearInterval(gameLoop.current);
+    if (status === GameActions.PLAY)
+      gameLoop.current = setInterval(() => {
+        const next = nextGeneration(cells, columns);
+        if (!next) return;
+        setCells(next);
+      }, 1000);
 
     return () => {
-      clearInterval(gameLoop);
+      if (gameLoop.current) clearInterval(gameLoop.current);
     };
-  });
+  }, [gameLoop.current, status]);
 
   // Constants
   const widthElement = 40.4;

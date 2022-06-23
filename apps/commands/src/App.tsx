@@ -1,8 +1,31 @@
 import * as React from 'react';
-import { Grid } from 'ui';
+import { Button, Center, CommandsUiProps, Grid } from 'ui';
+import { gameActionsStore } from 'store';
+import { GameActions } from 'models';
 
-const Commands: React.FC = () => {
-  return <Grid>Comandi qui</Grid>;
+const Commands: React.FC<CommandsUiProps> = () => {
+  const { status, setStatus } = gameActionsStore();
+
+  return (
+    <Center>
+      <Grid style={{ width: '100%' }}>
+        {Object.values(GameActions).map((value) => (
+          <Grid.Col span={12} key={value}>
+            <Button
+              color="dark"
+              size="md"
+              style={{ width: '100%' }}
+              variant="default"
+              onClick={() => setStatus(value)}
+              disabled={status === value}
+            >
+              {value}
+            </Button>
+          </Grid.Col>
+        ))}
+      </Grid>
+    </Center>
+  );
 };
 
 export default Commands;

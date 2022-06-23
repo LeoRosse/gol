@@ -1,6 +1,6 @@
 enum GameActions {
-  START = 'start',
-  STOP = 'stop',
+  PLAY = 'PLAY',
+  STOP = 'STOP',
 }
 
 export { GameActions };

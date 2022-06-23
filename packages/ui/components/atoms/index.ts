@@ -1,5 +1,6 @@
 export * from './aside';
 export * from './button';
+export * from './center';
 export * from './footer';
 export * from './header';
 export * from './grid';

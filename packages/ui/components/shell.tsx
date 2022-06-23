@@ -9,11 +9,12 @@ import {
   useMantineColorScheme,
 } from '@mantine/core';
 import { Aside, Footer, Header, Navbar, Text, Title } from './atoms';
+import { CommandsUiProps } from '../types';
 
 type ShellProps = Pick<
   AppShellPropsMantine,
   'aside' | 'children' | 'className' | 'fixed' | 'navbar' | 'navbarOffsetBreakpoint' | 'styles' | 'footer' | 'header'
-> & { CommandsComponent: React.ComponentType; title: string };
+> & { CommandsComponent: React.ComponentType<CommandsUiProps>; title: string };
 
 export const Shell: React.FC<ShellProps> = ({ children, CommandsComponent, title, ...rest }) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -26,7 +27,7 @@ export const Shell: React.FC<ShellProps> = ({ children, CommandsComponent, title
       navbar={
         (
           <Navbar p="md" width={{ sm: 200, lg: 300 }}>
-            <CommandsComponent />
+            <CommandsComponent colorScheme={colorScheme} />
           </Navbar>
         ) || navbar
       }
