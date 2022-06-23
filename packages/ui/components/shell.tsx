@@ -21,7 +21,7 @@ export const Shell: React.FC<ShellProps> = ({ children, CommandsComponent, title
   const { aside, footer, header, navbar } = rest;
   return (
     <AppShellMantine
-      padding="md"
+      padding={7}
       fixed
       navbar={
         (
