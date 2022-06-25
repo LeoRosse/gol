@@ -5,7 +5,19 @@ import Commands from 'commands/Commands';
 
 const Game: React.FC = () => (
   <AppShell CommandsComponent={Commands} title="A Journey into the Game of Life">
-    <Board ButtonComponent={({ cell }) => <Button variant={cell === 1 ? 'filled' : 'outline'} color="dark" />} />
+    <Board
+      ButtonComponent={({ cell }) => (
+        <Button
+          variant="default"
+          sx={(theme) => ({
+            backgroundColor: cell === 1 ? theme.colors.dark[8] : theme.colors.gray[0],
+            '&:hover': {
+              backgroundColor: theme.colors.gray[3],
+            },
+          })}
+        />
+      )}
+    />
   </AppShell>
 );
 

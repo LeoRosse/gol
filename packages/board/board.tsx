@@ -30,7 +30,7 @@ const Board: React.FC<BoardProps> = ({ ButtonComponent }) => {
         const next = nextGeneration(cells, columns);
         if (!next) return;
         setCells(next);
-      }, 1000);
+      }, 500);
 
     return () => {
       if (gameLoop.current) clearInterval(gameLoop.current);
