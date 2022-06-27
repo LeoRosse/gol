@@ -1,10 +1,22 @@
 import * as React from 'react';
 import { Button, Center, CommandsUiProps, Grid } from 'ui';
-import { gameActionsStore } from 'store';
+import { cellsStore, gameActionsStore } from 'store';
 import { GameActions } from 'models';
 
 const Commands: React.FC<CommandsUiProps> = () => {
   const { status, setStatus } = gameActionsStore();
+  const resetCells = cellsStore((state) => state.resetCells);
+
+  const clickMapper = (value: GameActions) => {
+    switch (value) {
+      case GameActions.PLAY:
+        return () => setStatus(value);
+      case GameActions.STOP:
+        return () => setStatus(value);
+      default:
+        return () => resetCells();
+    }
+  };
 
   return (
     <Center>
@@ -16,7 +28,7 @@ const Commands: React.FC<CommandsUiProps> = () => {
               size="md"
               style={{ width: '100%' }}
               variant="default"
-              onClick={() => setStatus(value)}
+              onClick={clickMapper(value)}
               disabled={status === value}
             >
               {value}
