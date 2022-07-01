@@ -1,2 +1,2 @@
 export * from './generate-array';
-export * from './next-generation';
+export * from './dispatch-next-generation';

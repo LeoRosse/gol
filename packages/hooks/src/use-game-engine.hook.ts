@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { nextGeneration } from 'business-logic';
+import { dispatchNextGeneration } from 'business-logic';
 import { GameActions } from 'models';
 import { cellsStore, columnsStore, gameActionsStore } from 'store';
 
@@ -14,12 +14,7 @@ const useGameEngine = (): void => {
   React.useEffect(() => {
     if (gameLoop.current) clearInterval(gameLoop.current);
     if (status === GameActions.PLAY)
-      gameLoop.current = setInterval(() => {
-        const next = nextGeneration(cells, columns);
-        if (!next) return;
-        setCells(next);
-      }, 500);
-
+      gameLoop.current = setInterval(() => dispatchNextGeneration(setCells, cells, columns), 500);
     return () => {
       if (gameLoop.current) clearInterval(gameLoop.current);
     };

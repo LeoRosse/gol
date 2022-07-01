@@ -1,11 +1,15 @@
 import * as React from 'react';
+import { dispatchNextGeneration } from 'business-logic';
 import { Button, Center, CommandsUiProps, Grid } from 'ui';
-import { cellsStore, gameActionsStore } from 'store';
+import { cellsStore, columnsStore, gameActionsStore } from 'store';
 import { GameActions } from 'models';
 
 const Commands: React.FC<CommandsUiProps> = () => {
   const { status, setStatus } = gameActionsStore();
   const resetCells = cellsStore((state) => state.resetCells);
+  const setCells = cellsStore((state) => state.setCells);
+  const cells = cellsStore((state) => state.cells);
+  const columns = columnsStore((state) => state.columns);
 
   const clickMapper = (value: GameActions) => {
     switch (value) {
@@ -13,6 +17,8 @@ const Commands: React.FC<CommandsUiProps> = () => {
         return () => setStatus(value);
       case GameActions.STOP:
         return () => setStatus(value);
+      case GameActions.NEXT:
+        return () => dispatchNextGeneration(setCells, cells, columns);
       default:
         return () => resetCells();
     }
