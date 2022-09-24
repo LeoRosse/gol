@@ -1,7 +1,7 @@
 import { Cell } from 'models';
-import { evaluateCell } from './evaluate-cell';
-import { neighborhoodCellAliveCounter } from './neighborhood-cell-alive-counter';
-import { neighborhoodOfCell } from './neighborhood-of-cell';
+import { evaluateCell } from './utils/evaluate-cell';
+import { neighborhoodCellAliveCounter } from './utils/neighborhood-cell-alive-counter';
+import { neighborhoodOfCell } from './utils/neighborhood-of-cell';
 
 export const nextGeneration = (array: Cell[] | undefined, nCols: number | undefined): Cell[] | undefined => {
   if (!array || nCols === undefined) return undefined;
