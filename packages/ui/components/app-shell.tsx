@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
 import { Shell } from './shell';
+import { CommandsUiProps } from '../types';
 
 type AppShellProps = {
   children: React.ReactNode;
   colorScheme?: ColorScheme;
-  CommandsComponent: React.ComponentType;
+  CommandsComponent: React.ComponentType<CommandsUiProps>;
   title: string;
 };
 
