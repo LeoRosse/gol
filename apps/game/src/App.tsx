@@ -3,11 +3,12 @@ import { AppShell, Button } from 'ui';
 import { Board } from 'board';
 import Commands from './components/commands';
 import { cellsStore } from 'store';
+import { Parser } from './components/parser';
 
 const Game: React.FC = () => {
   const updateCell = cellsStore((state) => state.updateCell);
   return (
-    <AppShell CommandsComponent={Commands} title="A Journey into the Game of Life">
+    <AppShell CommandsComponent={Commands} ParserComponent={Parser} title="A Journey into the Game of Life">
       <Board
         ButtonComponent={({ cell, position }) => (
           <Button

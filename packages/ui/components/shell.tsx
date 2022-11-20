@@ -8,15 +8,19 @@ import {
   MediaQuery,
   useMantineColorScheme,
 } from '@mantine/core';
-import { Aside, Footer, Header, Navbar, Text, Title } from './atoms';
-import { CommandsUiProps } from '../types';
+import { Aside, Footer, Header, Navbar, Title } from './atoms';
+import { CommandsUiProps, ParserUiProps } from '../types';
 
 type ShellProps = Pick<
   AppShellPropsMantine,
   'aside' | 'children' | 'className' | 'fixed' | 'navbar' | 'navbarOffsetBreakpoint' | 'styles' | 'footer' | 'header'
-> & { CommandsComponent: React.ComponentType<CommandsUiProps>; title: string };
+> & {
+  CommandsComponent: React.ComponentType<CommandsUiProps>;
+  title: string;
+  ParserComponent: React.ComponentType<ParserUiProps>;
+};
 
-export const Shell: React.FC<ShellProps> = ({ children, CommandsComponent, title, ...rest }) => {
+export const Shell: React.FC<ShellProps> = ({ children, CommandsComponent, ParserComponent, title, ...rest }) => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   const { aside, footer, header, navbar } = rest;
@@ -35,7 +39,7 @@ export const Shell: React.FC<ShellProps> = ({ children, CommandsComponent, title
         (
           <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
             <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-              <Text>Qui caricamento del file</Text>
+              <ParserComponent colorScheme={colorScheme} />
             </Aside>
           </MediaQuery>
         ) || aside
