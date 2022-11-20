@@ -27,8 +27,8 @@
     "typescript": "^4.7.2"
   },
   "scripts": {
-    "dev": "craco start",
-    "build": "craco build",
+    "dev": "craco start --mode development",
+    "build": "craco build --mode production",
     "test": "craco test"
   },
   "eslintConfig": {

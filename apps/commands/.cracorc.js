@@ -2,12 +2,18 @@ const { ModuleFederationPlugin } = require('webpack').container;
 
 const deps = require('./package.json').dependencies;
 
-module.exports = () => ({
+module.exports = ({ env }) => ({
   webpack: {
-    configure: {
-      output: {
-        publicPath: 'auto',
-      },
+    configure: (webpackConfig) => {
+      const pathDomain =
+        env === 'development' ? 'http://localhost:3001/' : 'https://turborepo-game-of-life-commands.vercel.app/';
+      return {
+        ...webpackConfig,
+        output: {
+          ...webpackConfig.output,
+          publicPath: pathDomain,
+        },
+      };
     },
     plugins: {
       add: [
