@@ -2,7 +2,14 @@ import * as React from 'react';
 // import { dispatchNextGeneration } from 'business-logic';
 import { Button, Center, CommandsUiProps, Grid } from 'ui';
 import { cellsStore, columnsStore, gameActionsStore } from 'store';
-import { GameActions } from 'models';
+// import { GameActions } from 'models';
+
+enum GameActions {
+  PLAY = 'PLAY',
+  STOP = 'STOP',
+  NEXT = 'NEXT',
+  RESET = 'RESET',
+}
 
 const Commands: React.FC<CommandsUiProps> = () => {
   const { status, setStatus } = gameActionsStore();
