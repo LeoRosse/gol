@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { AppShell, Button } from 'ui';
 import { Board } from 'board';
-import Commands from 'commands/Commands';
+import Commands from './components/commands';
 import { cellsStore } from 'store';
 
 const Game: React.FC = () => {
