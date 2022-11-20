@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { dispatchNextGeneration } from 'business-logic';
+// import { dispatchNextGeneration } from 'business-logic';
 import { Button, Center, CommandsUiProps, Grid } from 'ui';
 import { cellsStore, columnsStore, gameActionsStore } from 'store';
 import { GameActions } from 'models';
@@ -18,7 +18,8 @@ const Commands: React.FC<CommandsUiProps> = () => {
       case GameActions.STOP:
         return () => setStatus(value);
       case GameActions.NEXT:
-        return () => dispatchNextGeneration(setCells, cells, columns);
+        return () => console.log(setCells, cells, columns, 'test');
+      // return () => dispatchNextGeneration(setCells, cells, columns);
       default:
         return () => resetCells();
     }
