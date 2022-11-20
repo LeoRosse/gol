@@ -16,11 +16,12 @@
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "jest": "^28.1.1",
-    "models": "*",
     "ts-jest": "^28.0.5",
     "ts-node": "^10.8.1",
     "tslib": "^2.4.0",
     "typescript": "^4.5.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "models": "*"
+  }
 }

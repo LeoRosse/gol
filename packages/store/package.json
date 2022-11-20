@@ -12,11 +12,11 @@
     "devDependencies": {
       "eslint": "^7.32.0",
       "eslint-config-custom": "*",
-      "models": "*",
       "tsconfig": "*",
       "typescript": "^4.5.2"
     },
     "dependencies": {
+      "models": "*",
       "zustand": "4.0.0-rc.1"
     }
   }

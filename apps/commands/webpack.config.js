@@ -5,7 +5,7 @@ const deps = require('./package.json').dependencies;
 
 module.exports = (_, argv) => {
   const pathDomain =
-    argv.mode === 'development' ? 'http://localhost:3002/' : 'https://turborepo-game-of-life-commands.vercel.app/';
+    argv.mode === 'development' ? 'http://localhost:3001/' : 'https://turborepo-game-of-life-commands.vercel.app/';
   return {
     output: {
       publicPath: pathDomain,
@@ -16,7 +16,7 @@ module.exports = (_, argv) => {
     },
 
     devServer: {
-      port: 3002,
+      port: 3001,
       historyApiFallback: true,
     },
 

@@ -11,17 +11,18 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.5",
     "@types/uuid": "^8.3.4",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
-    "react": "^18.1.0",
-    "store": "*",
     "tsconfig": "*",
-    "typescript": "^4.5.2",
-    "uuid": "^8.3.2"
+    "typescript": "^4.5.2"
   },
   "dependencies": {
-    "hooks": "*"
+    "hooks": "*",
+    "models": "*",
+    "react": "^18.1.0",
+    "store": "*",
+    "ui": "*",
+    "uuid": "^8.3.2"
   }
 }
