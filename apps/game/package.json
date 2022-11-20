@@ -9,8 +9,7 @@
     "react-dom": "^18.1.0",
     "store": "*",
     "tsconfig": "*",
-    "ui": "*",
-    "web-vitals": "^2.1.4"
+    "ui": "*"
   },
   "devDependencies": {
     "@craco/craco": "^6.4.3",
